@@ -42,4 +42,9 @@ RUN cd ~/ &&\
     make install &&\
     ldconfig
 
+RUN cd /usr/local/python/cv2/python-3.6/ && \
+    mv cv2.cpython-36m-x86_64-linux-gnu.so cv2.so && \
+    mkdir -p /usr/lib/python3/site-packages && \
+    cd /usr/lib/python3/site-packages && \
+    ln -s /usr/local/python/cv2/python-3.6/cv2.so cv2.so
 
