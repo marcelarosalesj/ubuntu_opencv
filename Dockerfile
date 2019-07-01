@@ -12,7 +12,7 @@ RUN apt install -y build-essential cmake unzip pkg-config \
     libatlas-base-dev gfortran \
     python3-dev \
     python3-pip \
-    wget \
+    wget vim tree strace \
     git \
     libtbb2 libtbb-dev libdc1394-22-dev \
     qt5-default libvtk6-dev zlib1g-dev
@@ -44,7 +44,9 @@ RUN cd ~/ &&\
 
 RUN cd /usr/local/python/cv2/python-3.6/ && \
     mv cv2.cpython-36m-x86_64-linux-gnu.so cv2.so && \
-    mkdir -p /usr/lib/python3/site-packages && \
-    cd /usr/lib/python3/site-packages && \
+    mkdir -p /usr/local/lib/python3.6/site-packages && \
+    cd /usr/local/lib/python3.6/site-packages && \
     ln -s /usr/local/python/cv2/python-3.6/cv2.so cv2.so
+
+ENV PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.6/site-packages
 
