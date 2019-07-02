@@ -50,3 +50,5 @@ RUN cd /usr/local/python/cv2/python-3.6/ && \
 
 ENV PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.6/site-packages
 
+RUN cd ~ && \
+    rm -rf opencv*
